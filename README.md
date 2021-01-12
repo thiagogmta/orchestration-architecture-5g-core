@@ -10,6 +10,10 @@ Este projeto versa sobre a preparação de um ambiente local para execução do 
 
 
 
+## Sumário
+
+
+
 ## Instalação do Kubernetes e Minikube
 
 > Para este guia foi utilizado as configurações de Hardware e Software listadas a seguir que servem apenas como registro da ambientação. Não significa portanto que que este guia não possa ser aplicado num ambiente com características físicas diferentes. As ferramentas descritas podem ser executadas no Windows, Linux e Mac.:
@@ -77,8 +81,8 @@ choco install minikube
 
 ---
 
+<a href="https://github.com/thiagogmta"><img style="border-radius: 50%;" src="04.jpg" width="100px;" alt="Thiago Guimarães Tavares"/></a>
 
-
- <sub><b>Thiago Guimarães Tavares</b></sub>
+<a href="https://github.com/thiagogmta"><sub><b>Thiago Guimarães Tavares</b></sub></a>
 
 [![Gmail Badge](https://img.shields.io/badge/-thiagogmta@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:thiagogmta@gmail.com)](mailto:thiagogmta@gmail.com)
