@@ -6,10 +6,8 @@
 
 Este projeto versa sobre a preparação de um ambiente local para execução do núcleo 5G de forma orquestrada através do Kubernetes. Com o objetivo de instanciar nossa infraestrutura localmente utilizaremos o Minikube que permite a criação de um cluster Kubernetes no seu host local.
 
-![Badge](/aur/last-modified/:packageName)
+<p align="center">🚀 Em construção... 🚧</p>
 
-
-<h4 align="center">🚀 Em construção... 🚧</h3>
 
 
 ## Instalação do Kubernetes e Minikube
@@ -73,9 +71,10 @@ Novamente com o terminal em modo administrador iremos utilizar o chocolatey para
 choco install minikube
 ```
 
-Inicialmente deve-se instalar a ultima versão do [curl](https://curl.se/windows/). 
+
 
 ### Autor
+
 ---
 
 
