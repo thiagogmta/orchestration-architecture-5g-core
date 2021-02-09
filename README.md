@@ -2,20 +2,33 @@
 
 
 
-
-
 ## 1. Descrição do Projeto
 
 Este projeto versa sobre a preparação de um ambiente local para execução do núcleo 5G de forma orquestrada através do Kubernetes. Com o objetivo de instanciar nossa infraestrutura localmente utilizaremos o Minikube que permite a criação de um cluster Kubernetes no seu host local.
 
-<p align="center">🚀 Em construção... 🚧</p>
+Como base foi utilizado o [Free5GC Compose](https://github.com/free5gc/free5gc-compose#docker-engine)
+
+<p align="center">🚧 Em construção... 🚧</p>
 
 
 
 ## 2. Sumário
 
-
-
+   * [1. Descrição do Projeto](##1. Descrição do Projeto)
+   * [2. Sumário](##2. Sumário)
+   * [3. Instalação do Kubernetes e Minikube](##3. Instalação do Kubernetes e Minikube)
+      * [3.1 Preparando o Sistema](###3.1 Preparando o Sistema)
+      * [3.2 Instalação do Minikube](###3.2 Instalação do Minikube)
+      * [3.3 Instalação do Kubectl](###3.3 Instalação do Kubectl)
+      * [3.4 Iniciando o Cluster](###3.4 Iniciando o Cluster)
+      * [3.5 Operando o Minikube](###3.5 Operando o Minikube)
+   * [4. 5G Core](##4. 5G Core)
+      * [4.1 Prerequisitos](###4.1 Prerequisitos)
+      * [4.2 Iniciando o Free5gc](###4.2 Iniciando o Free5gc)
+   * [5. Traduzindo os arquivos do Docker Compose para Kubernetes](##5. Traduzindo os arquivos do Docker Compose para Kubernetes)
+      * [5.1 Instalando o Kompose](###5.1 Instalando o Kompose)
+      * [5.2 Docker Compose to Kubernetes](###5.2 Docker Compose to Kubernetes)
+   * [6. Subindo nosso Cluster (ERRO!)](##6. Subindo nosso Cluster (ERRO!))
 
 
 ## 3. Instalação do Kubernetes e Minikube
@@ -206,7 +219,7 @@ Define tamanho máximo de utilização de memória pelo cluster. É necessário 
 minikube delete
 ```
 
-Exclui o cluster
+Exclui o cluster.
 
 
 
@@ -358,6 +371,127 @@ sudo docker-compose down
 ![Docker Compose Down](06.png)
 
 Figura 5: Finalizando a execução dos containers
+
+
+
+## 5. Traduzindo os arquivos do Docker Compose para Kubernetes
+
+O kubernetes não permite a execução direta de um container no cluster. É necessário que se crie um pod para entao dentro desse pod configurarmos nossos containers.
+
+O kubernetes possui uma ferramenta chamada ***Kompose*** que permite a conversão dos arquivos dos containers escritos em YAML pelo docker compose. Esse processo permite que o kubernetes orquestre apropriadamente os containers.
+
+
+
+### 5.1 Instalando o Kompose
+
+Download do binário:
+
+```bash
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
+```
+
+Definição das permissões para execução:
+
+```bash
+chmod +x kompose
+```
+
+Movendo o kompose para o diretório apropriado:
+
+```bash
+sudo mv ./kompose /usr/local/bin/kompose
+```
+
+
+
+### 5.2 Docker Compose to Kubernetes
+
+Convertendo os arquivos do compose para o kubernetes. Primeiro iremos acessar o arquivo `docker-compose.yaml` e na primeira linha em `version: '3.8'` alterar para `3.0`. Logo após executar:
+
+```bash
+kompose convert
+```
+
+Ao executar o comando serão criados vários arquivos com extensão .yaml
+
+![Compose to Kompose](07.png)
+
+Figura 6: Compose to Kompose
+
+Após a conversão, vários arquivos com a extensão .yaml serão criados. O próximo passo consiste na criação dos recursos no nosso cluster através do comando `kubectl apply`.
+
+```bash
+kubectl apply -f .
+```
+
+Após executar o comando `apply` vamos listar os pods do cluster:
+
+```bash
+kubectl get pods
+```
+
+O retorno deve ser algo semelhante a tela a seguir:
+
+![get pods](08.png) 
+
+
+
+## 6. Subindo nosso Cluster (ERRO!)
+
+
+
+Chegamos ao ultimo tópico do post. O próximo passo é iniciar o cluster e verificar se as imagens foram adicionadas corretamente e estão em funcionamento. Para isso executaremos o comando:
+
+```
+minikube start
+```
+
+E após a inicialização do cluster iremos verificar os nossos containers com:
+
+```
+kubectl get pods
+```
+
+Temos o seguinte retorno:
+
+![get pods](09.png)
+
+
+
+Ao observar a imagem podemos perceber que os containters foram criados porém  o status de cada um está caracterizado como: **ImagePullBackOff** invés de **Running**.
+
+Apresento a seguir:
+
+a. Definição do problema
+
+b. Possíveis causas
+
+c. Próximo passo a ser efetuado
+
+
+
+**a) Definição do problema**
+
+ImagePullBackOff pode sinalizar alguns problemas dentro do cluster acredita-se que neste caso em específico as imagens dos containers não poderam ser baixadas e/ou extraidas.
+
+**b) Possíveis causas**
+
+1. A tag da imagem está incorreta. Essa falha pode ser derivada de erro de digitação ou configuração incorreta nos arquivos.
+2. A imagem do containger não existe ou está em um registro diferente. Por padrão, o kubernetes usa o registro do Dockerhub para download das imagens. Entretanto é possível utilizar outros registros de repositórios como Quay.io, AWS ou Google Containger.
+Para esse ponto foi observado que nos arquivos de configuração os registros apontam para utilização do Alphine Linux, distribuição que é encontrada no Docker Hub
+3. O kubernetes não tem permissão para extrair a imagem.
+
+**c) Próximos passos**
+
+Serão tomados dois passos iniciais para a correção do problema:
+
+O primeiro consiste na verificação dos arquivos de configuração criados pelo **konsole**. Ao verificar o manual de referência da ferramenta é possível ser necessário fazer adequações ao arquivo gerado.
+
+Caso o primeiro passo não retorne êxito o segundo passo consiste em verificar os repositórios das imagens dos containers.
+
+
+
+
 
 
 
