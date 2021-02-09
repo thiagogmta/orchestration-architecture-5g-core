@@ -146,7 +146,7 @@ minikube start
 
 Com este comando o minikube irá fazer o download dos binários necessários, criar uma VM no VirtualBox e preparar nosso Cluster. Caso tudo ocorra bem serão carregadas as seguintes informações:
 
-![minikube start](01.png)
+![minikube start](img/01.png)
 
 Figura 1: Minikube Start
 
@@ -164,7 +164,7 @@ minikube start --disk-size=40g --cpus 4 --memory 2048
 
 Entretanto sugiro manter as configurações padrão executando o comando sem passar nenhum parâmetro. Ao fim teremos o seguinte resultado em nosso Virtual Box:
 
-![vbox](02.png)
+![vbox](img/02.png)
 
 Figura 2: Minikube Vbox
 
@@ -345,7 +345,7 @@ sudo docker images
 
 Você deve se deparar com um retorno semelhante ao a seguir
 
-![Free5GC docker](03.png)
+![Free5GC docker](img/03.png)
 
 Figura 3: Funções do Free5GC sendo executadas através de containers
 
@@ -357,7 +357,7 @@ sudo docker ps
 
 A seguir temos o retorno
 
-![Status do Container](05.png)
+![Status do Container](img/05.png)
 
 Figura 4: Status das funções
 
@@ -367,7 +367,7 @@ Para parar a execução dos containers:
 sudo docker-compose down
 ```
 
-![Docker Compose Down](06.png)
+![Docker Compose Down](img/06.png)
 
 Figura 5: Finalizando a execução dos containers
 
@@ -413,7 +413,7 @@ kompose convert
 
 Ao executar o comando serão criados vários arquivos com extensão .yaml
 
-![Compose to Kompose](07.png)
+![Compose to Kompose](img/07.png)
 
 Figura 6: Compose to Kompose
 
@@ -431,7 +431,7 @@ kubectl get pods
 
 O retorno deve ser algo semelhante a tela a seguir:
 
-![get pods](08.png) 
+![get pods](img/08.png) 
 
 
 
@@ -453,7 +453,7 @@ kubectl get pods
 
 Temos o seguinte retorno:
 
-![get pods](09.png)
+![get pods](img/09.png)
 
 
 
@@ -490,15 +490,11 @@ Caso o primeiro passo não retorne êxito o segundo passo consiste em verificar 
 
 
 
-
-
-
-
 ### Autor
 
 ---
 
-<a href="https://github.com/thiagogmta"><img style="border-radius: 50%;" src="04.jpg" width="100px;" alt="Thiago Guimarães Tavares"/></a>
+<a href="https://github.com/thiagogmta"><img style="border-radius: 50%;" src="img/04.jpg" width="100px;" alt="Thiago Guimarães Tavares"/></a>
 
 <a href="https://github.com/thiagogmta"><sub><b>Thiago Guimarães Tavares</b></sub></a>
 
