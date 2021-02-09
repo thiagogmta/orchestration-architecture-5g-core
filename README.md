@@ -14,23 +14,21 @@ Como base foi utilizado o [Free5GC Compose](https://github.com/free5gc/free5gc-c
 
 ## 2. Sumário
 
-<!--ts-->
-   * [1. Descrição do Projeto](##1. Descrição do Projeto)
-   * [2. Sumário](##2. Sumário)
-   * [3. Instalação do Kubernetes e Minikube](##3. Instalação do Kubernetes e Minikube)
-      * [3.1 Preparando o Sistema](###3.1 Preparando o Sistema)
-      * [3.2 Instalação do Minikube](###3.2 Instalação do Minikube)
-      * [3.3 Instalação do Kubectl](###3.3 Instalação do Kubectl)
-      * [3.4 Iniciando o Cluster](###3.4 Iniciando o Cluster)
-      * [3.5 Operando o Minikube](###3.5 Operando o Minikube)
-   * [4. 5G Core](##4. 5G Core)
-      * [4.1 Prerequisitos](###4.1 Prerequisitos)
-      * [4.2 Iniciando o Free5gc](###4.2 Iniciando o Free5gc)
-   * [5. Traduzindo os arquivos do Docker Compose para Kubernetes](##5. Traduzindo os arquivos do Docker Compose para Kubernetes)
-      * [5.1 Instalando o Kompose](###5.1 Instalando o Kompose)
-      * [5.2 Docker Compose to Kubernetes](###5.2 Docker Compose to Kubernetes)
-   * [6. Subindo nosso Cluster (ERRO!)](##6. Subindo nosso Cluster (ERRO!))
-<!--te-->
+   * [1. Descrição do Projeto]
+   * [2. Sumário]
+   * [3. Instalação do Kubernetes e Minikube]
+      * [3.1 Preparando o Sistema]
+      * [3.2 Instalação do Minikube]
+      * [3.3 Instalação do Kubectl]
+      * [3.4 Iniciando o Cluster]
+      * [3.5 Operando o Minikube]
+   * [4. 5G Core]
+      * [4.1 Prerequisitos]
+      * [4.2 Iniciando o Free5gc]
+   * [5. Traduzindo os arquivos do Docker Compose para Kubernetes]
+      * [5.1 Instalando o Kompose]
+      * [5.2 Docker Compose to Kubernetes]
+   * [6. Subindo nosso Cluster (ERRO!)]
 
 ## 3. Instalação do Kubernetes e Minikube
 
