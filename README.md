@@ -14,6 +14,7 @@ Como base foi utilizado o [Free5GC Compose](https://github.com/free5gc/free5gc-c
 
 ## 2. Sumário
 
+<!--ts-->
    * [1. Descrição do Projeto](##1. Descrição do Projeto)
    * [2. Sumário](##2. Sumário)
    * [3. Instalação do Kubernetes e Minikube](##3. Instalação do Kubernetes e Minikube)
@@ -29,7 +30,7 @@ Como base foi utilizado o [Free5GC Compose](https://github.com/free5gc/free5gc-c
       * [5.1 Instalando o Kompose](###5.1 Instalando o Kompose)
       * [5.2 Docker Compose to Kubernetes](###5.2 Docker Compose to Kubernetes)
    * [6. Subindo nosso Cluster (ERRO!)](##6. Subindo nosso Cluster (ERRO!))
-
+<!--te-->
 
 ## 3. Instalação do Kubernetes e Minikube
 
