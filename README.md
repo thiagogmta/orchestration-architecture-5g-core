@@ -435,6 +435,14 @@ O retorno deve ser algo semelhante a tela a seguir:
 
 
 
+Para remover os pods, deploymets e services utilize:
+
+kubectl delete --all pods
+
+kubectl delete --all deployments
+
+kubectl delete --all services
+
 ## 6. Subindo nosso Cluster (ERRO!)
 
 
